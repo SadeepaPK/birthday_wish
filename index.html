@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff1f2">
+  <meta name="description" content="A mobile-friendly interactive birthday journey for Kavi, with original romantic and birthday instrumental music.">
+  <title>For Kavi, With Love — Sadeepa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=final-game-photos">
+
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div id="floating-hearts" class="floating-hearts" aria-hidden="true"></div>
+  <div id="sparkle-layer" class="sparkle-layer" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="For Kavi, with love">
+      <span class="brand-heart">♥</span>
+      <span>FOR KAVI</span>
+    </a>
+    <div class="topbar-right">
+      <span class="topbar-note">A LITTLE WORLD MADE WITH LOVE</span>
+      <button id="music-toggle" class="music-toggle" type="button" aria-label="Turn background music on">
+        <span class="music-icon">♫</span>
+        <span id="music-label">MUSIC OFF</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="app-shell">
+    <div class="journey-progress" aria-label="Birthday surprise progress">
+      <div class="progress-track"><div id="progress-fill" class="progress-fill"></div></div>
+      <div class="progress-meta">
+        <span id="progress-label">A LITTLE ADVENTURE</span>
+        <span id="progress-count">01 / 07</span>
+      </div>
+    </div>
+
+    <!-- 01: Welcome -->
+    <section class="stage active" data-stage="0" id="welcome-stage">
+      <div class="welcome-layout">
+        <div class="welcome-copy">
+          <p class="eyebrow"><span class="eyebrow-line"></span> A MESSAGE FOR SOMEONE SPECIAL</p>
+          <p class="script-kicker">To my favourite person</p>
+          <h1 class="hero-title">Hey,<br><span class="accent-text" data-girlfriend>Kavi</span><span class="title-period">.</span></h1>
+          <p class="hero-description">I made a little something for you. It isn't just a birthday wish... it's a tiny journey through all the love I want you to feel today.</p>
+          <div class="welcome-buttons">
+            <button id="start-journey" class="primary-button" type="button"><span>LET'S BEGIN</span><span class="button-arrow">♡</span></button>
+            <button id="welcome-secret" class="soft-button" type="button">Psst... tap for a secret <span>✦</span></button>
+          </div>
+          <p class="tiny-note"><span class="tiny-heart">♥</span> Made especially for you, with love from <span data-sender>Sadeepa</span>.</p>
+        </div>
+        <div class="welcome-art" aria-label="Decorative glowing heart">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="heart-aura"></div>
+          <div class="hero-heart-wrap"><div class="hero-heart">♥</div><span class="heart-glint">✦</span></div>
+          <span class="sticker sticker-butterfly">🦋</span><span class="sticker sticker-flower">🌷</span>
+          <span class="sticker sticker-star">✨</span><span class="sticker sticker-bow">🎀</span>
+          <span class="orbit-dot dot-one"></span>
+          <span class="orbit-dot dot-two"></span>
+          <span class="orbit-dot dot-three"></span>
+          <span class="art-caption">A LITTLE WORLD<br><strong>JUST FOR YOU</strong></span>
+          <button id="tap-heart" class="tap-heart-button" type="button">TAP MY HEART <span>♡</span></button>
+        </div>
+      </div>
+      <div class="welcome-footer"><span>SCROLL LESS · FEEL MORE</span><span>01 — A SPECIAL BEGINNING</span></div>
+    </section>
+
+    <!-- 02: Romantic quiz -->
+    <section class="stage" data-stage="1" id="quiz-stage" hidden>
+      <div class="section-heading centered">
+        <p class="eyebrow"><span class="eyebrow-line"></span> BEFORE THE SURPRISE <span class="eyebrow-line"></span></p>
+        <p class="script-kicker">Our little memory challenge</p>
+        <h2 class="section-title">Match the moments,<br><span class="accent-text">keep them forever.</span></h2>
+        <p class="section-description">Flip two cards at a time and find three matching pairs using a special set of photos chosen just for this game.</p>
+      </div>
+      <div class="memory-match-panel">
+        <div class="match-stats">
+          <span id="match-pair-count">MATCHES 0 / 3</span>
+          <span class="match-moves-label">MOVES <b id="match-moves">0</b></span>
+        </div>
+        <div class="match-progress-track"><div id="match-progress-fill"></div></div>
+        <div id="memory-match-grid" class="memory-match-grid" aria-label="Memory matching game with six photo cards"></div>
+        <p id="match-feedback" class="match-feedback" aria-live="polite">Tap any two cards and see if you can find a matching memory. 💗</p>
+        <button id="match-continue" class="primary-button match-continue" type="button" hidden disabled>
+          <span>UNLOCK MY LITTLE GIFT</span><span class="button-arrow">♡</span>
+        </button>
+      </div>
+      <p class="center-note">Three little photo pairs, and a lifetime of moments still to come. ♥</p>
+    </section>
+
+    <!-- 03: Gift -->
+    <section class="stage" data-stage="2" id="gift-stage" hidden>
+      <div class="section-heading centered">
+        <p class="eyebrow"><span class="eyebrow-line"></span> YOU DID IT <span class="eyebrow-line"></span></p>
+        <p class="script-kicker">A little something for you</p>
+        <h2 class="section-title">You found all six <span class="accent-text">love notes.</span></h2>
+        <p class="section-description">But the best part is still waiting. I wonder if you can open it...</p>
+      </div>
+      <div class="gift-scene">
+        <button id="gift-box" class="gift-box" type="button" aria-label="Open your birthday gift">
+          <span class="gift-glow"></span>
+          <span class="gift-lid"><span class="gift-ribbon"></span><span class="gift-bow"></span></span>
+          <span class="gift-body"><span class="gift-ribbon vertical"></span><span class="gift-heart">♥</span></span>
+          <span class="gift-sparkle sparkle-a">✦</span>
+          <span class="gift-sparkle sparkle-b">✧</span>
+          <span class="gift-sparkle sparkle-c">✦</span>
+        </button>
+        <div class="gift-controls">
+          <button id="shake-gift" class="soft-button" type="button">SHAKE THE GIFT <span>↝</span></button>
+          <button id="open-gift" class="primary-button" type="button"><span>OPEN MY GIFT</span><span class="button-arrow">🎁</span></button>
+        </div>
+        <p id="gift-instruction" class="gift-instruction">PICK A BUTTON TO SEE WHAT'S INSIDE</p>
+        <div id="gift-reveal" class="gift-reveal" hidden>
+          <p class="script-kicker">A tiny reminder</p>
+          <h3>YOU ARE SO LOVED, <span data-girlfriend>KAVI</span>.</h3>
+          <p>And today, the whole little universe gets to celebrate you.</p>
+          <button id="gift-continue" class="primary-button" type="button"><span>SHOW ME MY WISH</span><span class="button-arrow">↗</span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04: Birthday wish -->
+    <section class="stage" data-stage="3" id="birthday-stage" hidden>
+      <div class="birthday-card">
+        <div class="birthday-topline"><span>THE DAY IS YOURS</span><span>♥</span><span>MADE WITH LOVE</span></div>
+        <div class="birthday-decor birthday-decor-left">✦</div>
+        <div class="birthday-decor birthday-decor-right">✧</div>
+        <p class="script-kicker">Today, we celebrate you</p>
+        <p class="birthday-label">HAPPY BIRTHDAY</p>
+        <h2 class="birthday-name" data-girlfriend>Kavi</h2>
+        <div class="birthday-divider"><span>✦</span></div>
+        <p id="birthday-message" class="birthday-message">May your days be filled with the kind of happiness you bring into my life. You deserve every beautiful thing this world has to offer.</p>
+        <p class="birthday-signature">With all my love, <span data-sender>Sadeepa</span> <span class="signature-heart">♥</span></p>
+        <div class="birthday-bottomline"><span>ONE OF A KIND</span><span>FOREVER MY FAVOURITE</span><span>♥</span></div>
+      </div>
+      <div class="cake-interaction">
+        <div class="mini-cake" aria-label="Birthday cake with three candles">
+          <span class="candle candle-one"><i></i></span><span class="candle candle-two"><i></i></span><span class="candle candle-three"><i></i></span>
+          <div class="cake-top"></div><div class="cake-body"><span>♥</span><span>♥</span><span>♥</span></div><div class="cake-plate"></div>
+        </div>
+        <div class="cake-copy"><strong>Make a birthday wish!</strong><span>Tap the button to blow out your candles.</span></div>
+        <button id="blow-candles" class="soft-button" type="button">💨 BLOW OUT THE CANDLES</button>
+        <p id="cake-wish" class="cake-wish" hidden>May every little wish in your heart come true. ✨</p>
+      </div>
+      <div class="stage-bottom-action">
+        <button class="primary-button next-stage" data-next="4" type="button">
+          <span>SEE OUR LITTLE MEMORIES</span><span class="button-arrow">↗</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- 05: Memories -->
+    <section class="stage" data-stage="4" id="memories-stage" hidden>
+      <div class="section-heading">
+        <p class="eyebrow"><span class="eyebrow-line"></span> LITTLE MOMENTS, BIG FEELINGS</p>
+        <p class="script-kicker">A few pieces of forever</p>
+        <h2 class="section-title">Our memories,<br><span class="accent-text">my favourite treasures.</span></h2>
+        <p class="section-description">Some moments are too beautiful to keep only in our minds. Here are a few little spaces for ours.</p>
+      </div>
+      <div id="memory-grid" class="memory-grid"></div>
+      <p class="memory-hint"><span>♥</span> Replace these sample pictures with your favourite photos in the <strong>assets</strong> folder. The same three photos are used in the Memory Match game.</p>
+      <div class="stage-bottom-action"><button class="primary-button next-stage" data-next="5" type="button"><span>ONE MORE THING</span><span class="button-arrow">↗</span></button></div>
+    </section>
+
+    <!-- 06: Love letter -->
+    <section class="stage" data-stage="5" id="letter-stage" hidden>
+      <div class="section-heading centered">
+        <p class="eyebrow"><span class="eyebrow-line"></span> JUST BETWEEN US <span class="eyebrow-line"></span></p>
+        <p class="script-kicker">Words from my heart</p>
+        <h2 class="section-title">A letter for <span class="accent-text" data-girlfriend>Kavi</span>.</h2>
+      </div>
+      <div class="envelope-wrap">
+        <button id="letter-envelope" class="envelope" type="button" aria-label="Open Sadeepa's love letter">
+          <span class="envelope-flap"></span><span class="envelope-paper">💌</span><span class="envelope-heart">♥</span>
+        </button>
+        <p id="envelope-prompt" class="envelope-prompt">TAP THE ENVELOPE TO OPEN MY LETTER</p>
+      </div>
+      <div class="letter-card" hidden>
+        <div class="letter-top"><span>✦ A LITTLE LOVE NOTE ✦</span><span class="letter-stamp">♥</span></div>
+        <div id="letter-content" class="letter-content" aria-live="polite"></div>
+        <div class="letter-bottom"><span>ALWAYS YOURS,</span><span class="letter-signature" data-sender>Sadeepa</span></div>
+      </div>
+      <div class="stage-bottom-action">
+        <button id="reveal-letter" class="outline-button" type="button" hidden>OPEN MY LETTER <span>♥</span></button>
+        <button id="letter-continue" class="primary-button" type="button" hidden><span>THE FINAL SURPRISE</span><span class="button-arrow">↗</span></button>
+      </div>
+    </section>
+
+    <!-- 07: Final -->
+    <section class="stage" data-stage="6" id="final-stage" hidden>
+      <div class="final-scene">
+        <div class="final-ring ring-one"></div><div class="final-ring ring-two"></div>
+        <div class="final-heart">♥</div>
+        <p class="script-kicker">And one last thing...</p>
+        <h2 class="final-title">If I had to choose<br><span class="accent-text">a thousand times,</span></h2>
+        <p class="final-message">I'd still choose the chance to know you, laugh with you, support you and make more beautiful memories together.</p>
+        <p class="final-wish">Happy Birthday, my beautiful <span data-girlfriend>Kavi</span>.</p>
+        <p class="final-signature">Forever sending you love — <span data-sender>Sadeepa</span></p>
+        <div class="final-actions">
+          <button id="send-kiss" class="primary-button" type="button"><span>SEND A KISS</span><span class="button-arrow">💋</span></button>
+          <button id="heart-rain" class="soft-button" type="button">MAKE IT RAIN HEARTS <span>💗</span></button>
+          <button id="celebrate-again" class="text-button" type="button">CELEBRATE AGAIN ✨</button>
+          <button id="replay-journey" class="text-button" type="button">REPLAY OUR LITTLE STORY ↻</button>
+        </div>
+      </div>
+      <div class="final-footer">MADE WITH <span>♥</span> FOR KAVI · BY SADEEPA</div>
+    </section>
+
+    <nav class="stage-nav" aria-label="Journey navigation">
+      <button id="back-button" class="nav-button" type="button" disabled>← BACK</button>
+      <span class="nav-dots" id="nav-dots" aria-hidden="true">
+        <i class="current"></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </span>
+      <span class="nav-caption">OUR LITTLE JOURNEY</span>
+    </nav>
+  </main>
+
+  <aside class="sticker-dock" aria-label="Send a cute sticker">
+    <span class="dock-label">SEND A LITTLE LOVE</span>
+    <button class="sticker-button" data-sticker="💗" data-message="A little heart, just for you!" type="button" aria-label="Send a pink heart">💗</button>
+    <button class="sticker-button" data-sticker="🌷" data-message="A flower for my favourite person!" type="button" aria-label="Send a flower">🌷</button>
+    <button class="sticker-button" data-sticker="🦋" data-message="A little butterfly of happiness!" type="button" aria-label="Send a butterfly">🦋</button>
+    <button class="sticker-button" data-sticker="😘" data-message="Sending you a thousand kisses!" type="button" aria-label="Send a kiss">😘</button>
+    <button class="sticker-button" data-sticker="✨" data-message="You make everything sparkle!" type="button" aria-label="Send sparkles">✨</button>
+  </aside>
+  <audio id="love-audio" preload="none" loop src="assets/audio/romantic-background.mp3"></audio>
+  <audio id="birthday-audio" preload="none" loop src="assets/audio/birthday-music.mp3"></audio>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <noscript><div class="noscript">Please enable JavaScript to enjoy this birthday surprise.</div></noscript>
+
+  <script src="js/config.js?v=final-game-photos"></script>
+  <script src="js/script.js?v=final-game-photos"></script>
+</body>
+</html>
